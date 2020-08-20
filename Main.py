@@ -1,8 +1,6 @@
 from Classificadores.Filmes import Filmes
 
 
-
-
 class Program:
 
     def main():
