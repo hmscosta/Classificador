@@ -1,11 +1,11 @@
 from Classificadores.Filmes import Filmes
-
+from Classificadores.Tutorial import Tutorial
 
 class Program:
 
     def main():
-        objetoFilmes = Filmes()
-        objetoFilmes.classificador()
+        objetoTutorial = Tutorial()
+        objetoTutorial.classificador()
         print("Finalizando.......")
 
 
