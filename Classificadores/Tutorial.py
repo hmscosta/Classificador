@@ -14,6 +14,7 @@ class Tutorial:
             self.reviews.append(Review(review['reviewText'], review['overall']))
         arquivo.close()
         print(self.reviews[0].score)
+        print(self.reviews[0].sentiment)
 
 
            
