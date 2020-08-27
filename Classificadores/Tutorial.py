@@ -1,5 +1,5 @@
 import json
-
+from ClassesDeAuxilio.Review import Review
 class Tutorial:
 
     nome = "classificador_tutorial"
@@ -11,11 +11,9 @@ class Tutorial:
         arquivo = open(self.file_path,"r")
         for line in arquivo:
             review = json.loads(line)
-            #print(review['reviewText'])
-            #print(review['overall'])
-            self.reviews.append((review['reviewText'], review['overall']))
+            self.reviews.append(Review(review['reviewText'], review['overall']))
         arquivo.close()
-        print(self.reviews[0])
+        print(self.reviews[0].score)
 
 
            
