@@ -6,4 +6,4 @@
 
 # Classificador
 
-Projeto de que recebe um texto e diz se aquele texto pertence a alguma categoria especifica
+Classificador de texto que usa a biblioteca de machine learning scikit para classificar um texto em uma categoria

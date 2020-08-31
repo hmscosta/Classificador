@@ -34,5 +34,4 @@ class ClassificadorVagas:
         train_x_vectors = vectorizer.fit_transform(train_x) #Cria os vetores em formato numerico
         ##print(train_x[0])    #Primeira linha de texto
         ##rint(train_x_vectors[0].toarray()) #Vetor numerico que representa a primeira linha de texto
-
-        print(vectorizer.get_feature_names())
+        ##print(vectorizer.get_feature_names())
