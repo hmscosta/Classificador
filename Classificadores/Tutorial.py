@@ -18,20 +18,19 @@ class Tutorial:
         
         #Separando os dados em teste e treinamento
         training, test = train_test_split(self.reviews, test_size=0.33, random_state=42)
+        print(len(training))
+        print(len(test))
         #Separando score e text em duas arrays
         train_x = [x.text for x in training]
         train_y = [x.sentiment for x in training]
         test_x = [x.text for x in test]
         test_y = [x.sentiment for x in test]
-        
-
-        
+                
         #Rodando o algoritimo de bag of words
         vectorizer = CountVectorizer()
         train_x_vectors = vectorizer.fit_transform(train_x) #Cria os vetores em formato numerico
-        print(train_x[0])    #Primeira linha de texto
-        print(train_x_vectors[0].toarray()) #Vetor numerico que representa a primeira linha de texto
-
+        #print(train_x[0])    #Primeira linha de texto
+        #print(train_x_vectors[0].toarray()) #Vetor numerico que representa a primeira linha de texto
         #print(vectorizer.get_feature_names())  #Printa todas as features(o dicionario das palavras)
-        
+        print(train_y)        
            

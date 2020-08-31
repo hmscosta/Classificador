@@ -4,10 +4,10 @@ from Classificadores.ClassificadorVagas import ClassificadorVagas
 class Program:
 
     def main():
-        #objetoTutorial = Tutorial()
-        #objetoTutorial.classificador()
-        objetoClassificador = ClassificadorVagas()
-        objetoClassificador.classificador()
+        objetoTutorial = Tutorial()
+        objetoTutorial.classificador()
+        #objetoClassificador = ClassificadorVagas()
+        #objetoClassificador.classificador()
         print("Finalizando.......")
 
 

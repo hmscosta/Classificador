@@ -35,3 +35,4 @@ class ClassificadorVagas:
         ##print(train_x[0])    #Primeira linha de texto
         ##rint(train_x_vectors[0].toarray()) #Vetor numerico que representa a primeira linha de texto
         ##print(vectorizer.get_feature_names())
+        #print(train_y)
