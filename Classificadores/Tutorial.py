@@ -3,6 +3,8 @@ from ClassesDeAuxilio.Review import Review
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn import tree
+from sklearn.linear_model import LogisticRegression
+from sklearn.naive_bayes import GaussianNB
 class Tutorial:
 
     nome = "classificador_tutorial"
@@ -34,3 +36,11 @@ class Tutorial:
         clf = tree.DecisionTreeClassifier()
         clf = clf.fit(train_x_vectors, train_y)
         print(clf.predict(test_x_vectors[0:5]))
+        #Usando o algoritimo de LogisticRegression
+        lre = LogisticRegression()
+        lre = lre.fit(train_x_vectors, train_y)
+        print(lre.predict(test_x_vectors[0:5]))
+        #Usando o algoritimo de Naive Bayes
+        gnb = GaussianNB()
+        gnb = gnb.fit(train_x_vectors, train_y)
+        print(gnb.predict(test_x_vectors[0:5]))
