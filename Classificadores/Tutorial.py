@@ -5,6 +5,7 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn import tree
 from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import GaussianNB
+from sklearn.metrics import f1_score
 class Tutorial:
 
     nome = "classificador_tutorial"
@@ -44,8 +45,15 @@ class Tutorial:
         clf_gnb = GaussianNB()
         #gnb = gnb.fit(train_x, train_y)
         #print(gnb.predict(test_x_vectors[0:5]))
+
+
+        #Comparando a eficiencia dos modelos (MEAN ACCURACY)
         print()
         print("-------- Avaliando os modelos --------")
+        print("\nMEAN ACCURACY")
         print("\nDecision Tree: %.3f" % clf_tree.score(test_x_vectors,test_y))
         print("LogisticRegression: %.3f" % clf_lre.score(test_x_vectors,test_y))
-        #Comparando a eficiencia dos modelos
+        #Comparando a eficiencia dos modelos (F1 SCORES)
+        print("\nF1 SCORES\n")
+        print(f1_score(test_y, clf_tree.predict(test_x_vectors), average = None, labels = ['POSITIVE','NEUTRAL','NEGATIVE']))
+        print(f1_score(test_y, clf_lre.predict(test_x_vectors), average = None, labels = ['POSITIVE','NEUTRAL','NEGATIVE']))
