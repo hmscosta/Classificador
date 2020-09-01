@@ -2,6 +2,7 @@ import json
 from ClassesDeAuxilio.Review import Review
 from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
+from sklearn import tree
 class Tutorial:
 
     nome = "classificador_tutorial"
@@ -25,12 +26,11 @@ class Tutorial:
         train_y = [x.sentiment for x in training]
         test_x = [x.text for x in test]
         test_y = [x.sentiment for x in test]
-                
-        #Rodando o algoritimo de bag of words
+        #Vetorizando (bag of words)
         vectorizer = CountVectorizer()
         train_x_vectors = vectorizer.fit_transform(train_x) #Cria os vetores em formato numerico
-        #print(train_x[0])    #Primeira linha de texto
-        #print(train_x_vectors[0].toarray()) #Vetor numerico que representa a primeira linha de texto
-        #print(vectorizer.get_feature_names())  #Printa todas as features(o dicionario das palavras)
-        print(train_y)        
-           
+        test_x_vectors = vectorizer.transform(test_x) #Cria os vetores em formato numerico
+        #Usando o algoritimo de decision tree
+        clf = tree.DecisionTreeClassifier()
+        clf = clf.fit(train_x_vectors, train_y)
+        print(clf.predict(test_x_vectors[0:5]))
