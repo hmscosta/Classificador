@@ -8,6 +8,9 @@ class Program:
         objetoTutorial.classificador()
         #objetoClassificador = ClassificadorVagas()
         #objetoClassificador.classificador()
+        print()
+        print()
+        print()
         print("Finalizando.......")
 
 

@@ -33,14 +33,19 @@ class Tutorial:
         train_x_vectors = vectorizer.fit_transform(train_x) #Cria os vetores em formato numerico
         test_x_vectors = vectorizer.transform(test_x) #Cria os vetores em formato numerico
         #Usando o algoritimo de decision tree
-        clf = tree.DecisionTreeClassifier()
-        clf = clf.fit(train_x_vectors, train_y)
-        print(clf.predict(test_x_vectors[0:5]))
+        clf_tree = tree.DecisionTreeClassifier()
+        clf_tree = clf_tree.fit(train_x_vectors, train_y)
+        print(clf_tree.predict(test_x_vectors[0:5]))
         #Usando o algoritimo de LogisticRegression
-        lre = LogisticRegression()
-        lre = lre.fit(train_x_vectors, train_y)
-        print(lre.predict(test_x_vectors[0:5]))
+        clf_lre = LogisticRegression()
+        clf_lre = clf_lre.fit(train_x_vectors, train_y)
+        print(clf_lre.predict(test_x_vectors[0:5]))
         #Usando o algoritimo de Naive Bayes
-        gnb = GaussianNB()
-        gnb = gnb.fit(train_x_vectors, train_y)
-        print(gnb.predict(test_x_vectors[0:5]))
+        clf_gnb = GaussianNB()
+        #gnb = gnb.fit(train_x, train_y)
+        #print(gnb.predict(test_x_vectors[0:5]))
+        print()
+        print("-------- Avaliando os modelos --------")
+        print("\nDecision Tree: %.3f" % clf_tree.score(test_x_vectors,test_y))
+        print("LogisticRegression: %.3f" % clf_lre.score(test_x_vectors,test_y))
+        #Comparando a eficiencia dos modelos
