@@ -11,7 +11,7 @@ class Tutorial:
     nome = "classificador_tutorial"
     file_path = "/home/henrique/Documents/Desenvolvimento/Python/Datasets/Books_small_10000.json"
     reviews = []
-
+    #objetoReview = Review() 
     def classificador(self):
         print("%s trabalhando" % self.nome)
         arquivo = open(self.file_path,"r")
@@ -19,6 +19,11 @@ class Tutorial:
             review = json.loads(line)
             self.reviews.append(Review(review['reviewText'], review['overall']))
         arquivo.close()
+        #print("NUMERO TOTAL DE REVIEWS %d" % len(self.reviews))
+        #Balanceando as entradas
+        print(self.reviews[0])
+        self.reviews = Review.balancear(self.reviews)
+        
         
         #Separando os dados em teste e treinamento
         training, test = train_test_split(self.reviews, test_size=0.33, random_state=42)
