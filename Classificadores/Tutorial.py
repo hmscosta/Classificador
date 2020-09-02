@@ -9,7 +9,7 @@ from sklearn.metrics import f1_score
 class Tutorial:
 
     nome = "classificador_tutorial"
-    file_path = "/home/henrique/Documents/Desenvolvimento/Python/Datasets/Books_small.json"
+    file_path = "/home/henrique/Documents/Desenvolvimento/Python/Datasets/Books_small_10000.json"
     reviews = []
 
     def classificador(self):
@@ -40,7 +40,9 @@ class Tutorial:
         #Usando o algoritimo de LogisticRegression
         clf_lre = LogisticRegression()
         clf_lre = clf_lre.fit(train_x_vectors, train_y)
-        print(clf_lre.predict(test_x_vectors[0:5]))
+        print(train_y.count('POSITIVE'))
+        print(train_y.count('NEUTRAL'))
+        print(train_y.count('NEGATIVE'))
         #Usando o algoritimo de Naive Bayes
         clf_gnb = GaussianNB()
         #gnb = gnb.fit(train_x, train_y)
