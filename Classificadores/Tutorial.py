@@ -7,6 +7,7 @@ from sklearn import svm
 from sklearn.linear_model import LogisticRegression
 from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import f1_score
+from sklearn.model_selection import GridSearchCV
 class Tutorial:
 
     nome = "classificador_tutorial"
@@ -37,6 +38,21 @@ class Tutorial:
         train_x_vectors = vectorizer.fit_transform(train_x) #Cria os vetores em formato numerico
         test_x_vectors = vectorizer.transform(test_x) #Cria os vetores em formato numerico
         
+
+        #Tunando os algoritimos
+        parameters = {'kernel':('linear', 'poly', 'rbf'),
+                     'C': (1, 2, 4, 8, 10, 16, 32, 64)}
+        svc = svm.SVC()
+        clf_svm_tunned = GridSearchCV(svc, parameters, cv=5, verbose=10)
+        clf_svm_tunned.fit(train_x_vectors, train_y)
+        print("\nSVM: %.3f" % clf_svm_tunned.score(test_x_vectors,test_y))
+        scores_svm = f1_score(test_y, clf_svm_tunned.predict(test_x_vectors), average = None, labels = ['POSITIVE','NEUTRAL','NEGATIVE'])
+        print("\n Positive: %.3f \n Neutral: %.3f \n Negative: %.3f \n" % (scores_svm[0], scores_svm[1], scores_svm[2] ) )
+
+        return
+
+
+
         #Usando o algoritimo de svm
         clf_svm = svm.SVC(kernel = 'linear')
         clf_svm = clf_svm.fit(train_x_vectors, train_y)
