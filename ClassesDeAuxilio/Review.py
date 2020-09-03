@@ -16,7 +16,6 @@ class Review:
         return self.sentiment
 
     def balancear(reviews):
-        #print(reviews[0].sentiment)
         positive = []
         neutral = []
         negative = []
@@ -28,20 +27,9 @@ class Review:
                 neutral.append(entrada)
             else:
                 negative.append(entrada)
-        
-        #print("POSITIVOS: %d" % len(positive))
-        #print("NEUTROS: %d" % len(neutral))
-        #print("NEGATIVOS: %d" % len(negative))
-
         positive = positive[0:len(negative)]
         neutral = neutral[0:len(negative)]
-        #print("POSITIVOS: %d" % len(positive))
-        #print("NEUTROS: %d" % len(neutral))
-        #print("NEGATIVOS: %d" % len(negative))    
         cargaBalanceada = positive + neutral + negative
-        print(cargaBalanceada[0])
-        print()
         random.shuffle(cargaBalanceada)
-        print(cargaBalanceada[0])
         return cargaBalanceada
         

@@ -1,7 +1,7 @@
 import json
 from ClassesDeAuxilio.Review import Review
 from sklearn.model_selection import train_test_split
-from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.feature_extraction.text import CountVectorizer, TfidfVectorizer
 from sklearn import tree
 from sklearn import svm
 from sklearn.linear_model import LogisticRegression
@@ -33,7 +33,7 @@ class Tutorial:
         test_y = [x.sentiment for x in test]
         
         #Vetorizando (bag of words)
-        vectorizer = CountVectorizer()
+        vectorizer = TfidfVectorizer()
         train_x_vectors = vectorizer.fit_transform(train_x) #Cria os vetores em formato numerico
         test_x_vectors = vectorizer.transform(test_x) #Cria os vetores em formato numerico
         
